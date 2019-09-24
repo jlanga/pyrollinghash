@@ -1,10 +1,6 @@
 #ifndef CHARACTERHASH
 #define CHARACTERHASH
 
-typedef unsigned long long uint64;
-typedef unsigned int uint32;
-typedef unsigned int uint;
-
 #include <cassert>
 #include <iostream>
 #include <stdexcept>
@@ -12,6 +8,9 @@ typedef unsigned int uint;
 
 using namespace std;
 
+typedef unsigned long long uint32;
+typedef unsigned long long hashvaluetype;
+typedef unsigned char chartype;
 
 class mersenneRNG {
 public:

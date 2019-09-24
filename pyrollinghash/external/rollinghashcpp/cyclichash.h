@@ -20,8 +20,6 @@
 *           hf.update(out,c); // update hash value
 *        }
 */
-typedef uint32 hashvaluetype;
-typedef unsigned char chartype;
 
 template <typename hashvaluetype = uint32, typename chartype =  unsigned char>
 class CyclicHash {
@@ -29,7 +27,7 @@ class CyclicHash {
 public:
     // myn is the length of the sequences, e.g., 3 means that you want to hash sequences of 3 characters
     // mywordsize is the number of bits you which to receive as hash values, e.g., 19 means that the hash values are 19-bit integers
-    CyclicHash(int myn, int mywordsize) : hashvalue(0),
+    CyclicHash(int myn, int mywordsize=19) : hashvalue(0),
         n(myn), wordsize(mywordsize),
         hasher(maskfnc<hashvaluetype>(wordsize)),
         mask1(maskfnc<hashvaluetype>(wordsize-1)),

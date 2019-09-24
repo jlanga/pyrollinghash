@@ -1,15 +1,16 @@
 # distutils: language=c++
 
-from libc.stdint cimport uint32_t
+# from libc.stdint cimport uint32_t, uint64_t
 from libcpp.string cimport string
 
 from pyrollinghash._cyclichash cimport CyclicHash as CPPCyclicHash
 
-ctypedef uint32_t uint32
-ctypedef uint32_t hashvaluetype
-ctypedef unsigned char chartype
+
+ctypedef unsigned uint
 ctypedef string container
-ctypedef unsigned int uint
+ctypedef unsigned long long hashvaluetype
+ctypedef unsigned char chartype
+
 
 cdef class CyclicHash:
 
@@ -17,7 +18,9 @@ cdef class CyclicHash:
 
     def __cinit__(self, myn, mywordsize, seed1=None, seed2=None):
         if seed1 is not None and seed2 is not None:
-            self.cpp_cyclic_hash = new CPPCyclicHash(myn, seed1, seed2, mywordsize)
+            self.cpp_cyclic_hash = new CPPCyclicHash(
+                myn, seed1, seed2, mywordsize
+            )
         else:
             self.cpp_cyclic_hash = new CPPCyclicHash(myn, mywordsize)
 
@@ -68,3 +71,7 @@ cdef class CyclicHash:
     @property
     def maskn(self):
         return self.cpp_cyclic_hash.maskn
+
+    def __dealloc__(self):
+        if self.cpp_cyclic_hash != NULL:
+            del self.cpp_cyclic_hash
