@@ -21,7 +21,10 @@ setup(
     name="pyrollinghash",
     ext_modules=cythonize(
         extensions,
-        compiler_directives={'language_level': '3'},
+        compiler_directives={
+            'language_level': '3',
+            'embedsignature': True
+        },
     ),
     # include_dirs=[numpy.get_include(),"pyrollinghash/external/rollinghashcpp/"],
     # library_dirs= ["pyrollinghash/external/rollinghashcpp/"]
