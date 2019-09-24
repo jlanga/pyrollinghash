@@ -1,13 +1,7 @@
 from distutils.core import setup
-# from distutils.extension import Extension
 from Cython.Build import cythonize
 
-
 extensions = [
-    # Extension("rollinghashcpp", [],
-    #     include_dirs= ["pyrollinghash/external/rollinghashcpp/"],
-    #     library_dirs= ["pyrollinghash/external/rollinghashcpp/"]
-    # ),
     "pyrollinghash/adler32.pyx",
     "pyrollinghash/cyclichash.pyx",
     "pyrollinghash/characterhash.pyx",
@@ -26,6 +20,4 @@ setup(
             'embedsignature': True
         },
     ),
-    # include_dirs=[numpy.get_include(),"pyrollinghash/external/rollinghashcpp/"],
-    # library_dirs= ["pyrollinghash/external/rollinghashcpp/"]
 )
