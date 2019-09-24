@@ -25,7 +25,7 @@ Note: all hashes return 64-bit integers that later are converted to what you wan
 >>> hasher.hashvalue
 0
 >>> for i in range(1, 4):  # Check that we will get the same value by hashing 1-3
-    hasher.eat(i)
+        hasher.eat(i)
 >>> hasher.hashvalue
 851975
 ```
