@@ -54,7 +54,7 @@ cdef class CyclicHash:
 
     def __cinit__(self, myn, mywordsize, seed1=None, seed2=None):
         """
-        Initialize the CyclicHash hasher
+        Initialize the CyclicHash string hasher
 
         Args:
             myn (int): length of the n-grams to hash.

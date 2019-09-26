@@ -14,6 +14,7 @@ cdef extern from "external/rollinghashcpp/rabinkarphash.h":
         hashvaluetype hash(container c)
         void eat(chartype inchar)
         void update(chartype outchar, chartype inchar)
+        void reset()
 
         hashvaluetype hashvalue
         int n
