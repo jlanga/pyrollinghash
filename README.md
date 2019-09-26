@@ -11,21 +11,22 @@ Note: all hashes return 64-bit integers that later are converted to what you wan
 ```python
 from pyrollinghash.cyclichash import CyclicHash
 
+# Initialize elements
 read = "CACTACACTAC"
 n = len(read)
 k = 5
 ch = CyclicHash(k, 64, 1, 1)
 
-# Initial 5-gram
+# Hash the initial 5-gram with Hasher.eat()
 for i in range(k):
     ch.eat(ord(read[i]))
 print(read[0:k], ch.hashvalue)
 
-# Hash the remainder 5-grams
+# Hash the remainder 5-grams with Hasher.update(out, in)
 for i in range(k,n):
-    kmer = read[i-k+1:i+1]
+    ngram = read[i-k+1:i+1]
     ch.update(ord(read[i-k]), ord(read[i]))
-    print(kmer, ch.hashvalue)
+    print(ngram, ch.hashvalue)
 ```
 ```
 CACTA 5677400150441078107
