@@ -5,9 +5,14 @@ from pyrollinghash._adler32 cimport Adler32 as CPPAdler32
 cdef class Adler32:
     """Adler32 string hasher
 
+    Arguments:
+        window (int): length of the n-gram to hash.
+        inchar (int): integer that enters the rolling hash. TODO
+        outchar (int): integer that exits the rolling hash. TODO
+
     Attributes:
         len (int): size of the window to be hashed
-        Base (int): modulo used (65521).
+        Base (int): modulo used (65,521).
         hashvalue (int): the current value of the hash function
 
     >>> hasher = Adler32(3)

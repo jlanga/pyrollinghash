@@ -18,6 +18,8 @@ cdef class CyclicHash:
         seed2 (int): second seed to initialize the hash fucntion.
         myn (int): length of the n-grams to hash.
         mywordsize (int): bit length of the hash values.
+        inchar (int): integer that enters the rolling hash. TODO
+        outchar (int): integer that exits the rolling hash. TODO
 
     Atributes:
 
