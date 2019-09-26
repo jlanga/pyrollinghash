@@ -11,8 +11,8 @@ cdef class Adler32:
         outchar (int): integer that exits the rolling hash. TODO
 
     Attributes:
-        len (int): size of the window to be hashed
-        Base (int): modulo used (65,521).
+        len (int): length of the n-gram to hash.
+        Base (int): modulo used (65,521; 16 bits).
         hashvalue (int): the current value of the hash function
 
     >>> hasher = Adler32(3)
@@ -34,7 +34,7 @@ cdef class Adler32:
     851975
     """
     def __init__(self, window):
-        """Initialize the Adler32 hash
+        """Initialize the Adler32 hasher
 
         Args:
             window (int): size of the window to be hashed.
@@ -83,7 +83,7 @@ cdef class Adler32:
     # Attribute access
     @property
     def len(self):
-        """int: length of the window used"""
+        """int: length of the n-gram"""
         return self.cpp_adler32.len
 
     @property
