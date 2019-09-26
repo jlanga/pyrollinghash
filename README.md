@@ -59,6 +59,24 @@ Note: all hashes return 64-bit integers that later are converted to what you wan
 ### GeneralHash
 
 ```python
+>>> from pyrollinghash import GeneralHash
+>>> hasher = GeneralHash(3, 19)
+>>> hasher.hashvalue
+0
+>>> for i in range(3):  # Hash 0, 1 ,2
+        hasher.eat(i)
+>>> hasher.hashvalue
+434959
+>>> hasher.update(0, 3)  # Remove 0, add 3
+>>> hasher.hashvalue
+7153
+>>> hasher.reset()
+>>> hasher.hashvalue
+0
+>>> for i in range(1, 4):  # Check that we will get the same hash with 1-3
+        hasher.eat(i)
+>>> hasher.hashvalue
+7153
 ```
 
 ### ThreewiseHash
