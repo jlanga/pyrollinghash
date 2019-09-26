@@ -1,4 +1,6 @@
 build/
-pyrollinghash/__pychache__
+pyrollinghash/__pycache__
 *.so
 pyrollinghash/*.cpp
+__pycache__
+*.ipynb_checkpoints*
