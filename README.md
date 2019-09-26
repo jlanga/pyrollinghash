@@ -7,9 +7,9 @@ Note: Work in progress
 Note: all hashes return 64-bit integers that later are converted to what you want
 
 
-## Available hashers
+# Available hashers
 
-### Adler32
+## Adler32
 
 ```python
 >>> from pyrollinghash import Adler32
@@ -32,7 +32,7 @@ Note: all hashes return 64-bit integers that later are converted to what you wan
 851975
 ```
 
-### CyclicHash
+## CyclicHash
 
 ```python
 >>> from pyrollinghash import CyclicHash
@@ -56,7 +56,7 @@ Note: all hashes return 64-bit integers that later are converted to what you wan
 ```
 
 
-### GeneralHash
+## GeneralHash
 
 ```python
 >>> from pyrollinghash import GeneralHash
@@ -79,7 +79,7 @@ Note: all hashes return 64-bit integers that later are converted to what you wan
 7153
 ```
 
-### ThreeWiseHash
+## ThreeWiseHash
 
 ```python
 >>> from pyrollinghash import ThreeWiseHash
@@ -102,7 +102,7 @@ Note: all hashes return 64-bit integers that later are converted to what you wan
 4181938747326092072
 ```
 
-### RabinKarpHash
+## RabinKarpHash
 
 ```python
 >>> from pyrollinghash import KarpRabinHash
@@ -124,3 +124,7 @@ Note: all hashes return 64-bit integers that later are converted to what you wan
 >>> hasher.hashvalue
 13252376563992438057
 ```
+
+# References
+
+- [rollinghashcpp](https://github.com/lemire/rollinghashcpp)
