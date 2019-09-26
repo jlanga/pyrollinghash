@@ -14,8 +14,6 @@ cdef class KarpRabinHash:
     Arguments:
         myn (int): length of the n-grams to hash.
         mywordsize (int): bit length of the hash values.
-        seed1 (int): first seed to initialize the hash function.
-        seed2 (int): second seed to initialize the hash fucntion.
         inchar (int): integer that enters the rolling hash. TODO
         outchar (int): integer that exits the rolling hash. TODO
         container (list[int]): list of integers to hash. TODO
