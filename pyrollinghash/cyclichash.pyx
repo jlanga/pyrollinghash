@@ -1,8 +1,6 @@
 # distutils: language=c++
 
-# from libc.stdint cimport uint32_t, uint64_t
 from libcpp.string cimport string
-
 from pyrollinghash._cyclichash cimport CyclicHash as CPPCyclicHash
 
 
@@ -13,6 +11,42 @@ ctypedef unsigned char chartype
 
 
 cdef class CyclicHash:
+    """CyclicHash string hasher
+
+    Arguments:
+        seed1 (int): first seed to initialize the hash function.
+        seed2 (int): second seed to initialize the hash fucntion.
+        myn (int): length of the n-grams to hash.
+        mywordsize (int): bit length of the hash values.
+
+    Atributes:
+
+        hashvalue (int): current hash value.
+        n (int): length of the n-grams to hash.
+        wordsize: bit length of the hash values.
+        mask1: TODO
+        mask2: TODO
+        myr: TODO
+        maskn: TODO
+
+    >>> hasher = CyclicHash(3, 64, 1, 1)
+    >>> hasher.hashvalue
+    0
+    >>> for i in range(3):  # Hash 0, 1 ,2
+            hasher.eat(i)
+    >>> hasher.hashvalue
+    17145202471131414222
+    >>> hasher.update(0, 3)  # Remove 0, add 3
+    >>> hasher.hashvalue
+    7164181364666550526
+    >>> hasher.reset()
+    >>> hasher.hashvalue
+    0
+    >>> for i in range(1, 4):  # Check that we will get the same hash with 1-3
+        hasher.eat(i)
+    >>> hasher.hashvalue
+    7164181364666550526
+    """
 
     cdef CPPCyclicHash[hashvaluetype, chartype] *cpp_cyclic_hash
 
