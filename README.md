@@ -6,6 +6,36 @@ Note: Work in progress
 
 Note: all hashes return 64-bit integers that later are converted to what you want
 
+# How to compute hashes:
+
+```python
+from pyrollinghash.cyclichash import CyclicHash
+
+read = "CACTACACTAC"
+n = len(read)
+k = 5
+ch = CyclicHash(k, 64, 1, 1)
+
+# Initial 5-gram
+for i in range(k):
+    ch.eat(ord(read[i]))
+print(read[0:k], ch.hashvalue)
+
+# Hash the remainder 5-grams
+for i in range(k,n):
+    kmer = read[i-k+1:i+1]
+    ch.update(ord(read[i-k]), ord(read[i]))
+    print(kmer, ch.hashvalue)
+```
+```
+CACTA 5677400150441078107
+ACTAC 18253274918174107859
+CTACA 13733297960976284091
+TACAC 2154973599019565330
+ACACT 9619269492940898979
+CACTA 5677400150441078107  # The pattern repeats again
+ACTAC 18253274918174107859
+```
 
 # Available hashers
 
